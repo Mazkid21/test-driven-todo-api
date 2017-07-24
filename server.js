@@ -60,12 +60,18 @@ app.post('/api/todos', function create(req, res) {
   /* This endpoint will add a todo to our "database"
    * and respond with the newly created todo.
    */
+   var newTodo = {"_id": todos.length += 1, "task": req.body.task, "description": req.body.description};
+
+   
+
+   res.send(newTodo);
 });
 
 app.get('/api/todos/:id', function show(req, res) {
   /* This endpoint will return a single todo with the
    * id specified in the route parameter (:id)
    */
+
 });
 
 app.put('/api/todos/:id', function update(req, res) {
