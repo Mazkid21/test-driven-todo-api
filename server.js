@@ -48,6 +48,9 @@ app.get('/api/todos/search', function search(req, res) {
   /* This endpoint responds with the search results from the
    * query in the request. COMPLETE THIS ENDPOINT LAST.
    */
+   var searchTodo = {'discover': req.body.discover};
+   res.send(searchTodo);
+
 });
 
 app.get('/api/todos', function index(req, res) {
@@ -71,7 +74,7 @@ app.get('/api/todos/:id', function show(req, res) {
   /* This endpoint will return a single todo with the
    * id specified in the route parameter (:id)
    */
-   res.send(todos[req.params.id-1]);
+   res.send(todos[req.params.id - 1]);
 
 });
 
@@ -88,7 +91,7 @@ app.put('/api/todos/:id', function update(req, res) {
   updateTodo.description = req.body.description;
 
   todos.push(updateTodo);
-  res.send(todos[req.params.id-1]);
+  res.send(updateTodo);
 
 
 });
@@ -99,7 +102,7 @@ app.delete('/api/todos/:id', function destroy(req, res) {
    * with deleted todo.
    */
 
-   var index = [req.params.id -1];
+   var index = req.params.id - 1;
    res.json({todos:todos});
 
    todos.splice(index, 1);
