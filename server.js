@@ -99,7 +99,7 @@ app.delete('/api/todos/:id', function destroy(req, res) {
    * with deleted todo.
    */
 
-   var index = req.params.id -1;
+   var index = [req.params.id -1];
    res.json({todos:todos});
 
    todos.splice(index, 1);
